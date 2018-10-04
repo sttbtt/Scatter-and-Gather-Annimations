@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var aa: UILabel!
     
     var shouldScramble: Bool = false
+    let colors: [UIColor] = [.white, .red, .green, .blue, .orange, .yellow, .magenta, .cyan]
+
 
 
     @IBAction func shouldScramble(_ sender: Any) {
@@ -52,8 +54,10 @@ class ViewController: UIViewController {
     func dropLetters() {
         
         UIView.animate(withDuration: 2) {
-            self.l.layer.backgroundColor = UIColor.blue.cgColor
+            self.l.layer.backgroundColor = self.colors.randomElement()!.cgColor
         }
+        
+//        changeColor(to: colors.randomElement()!, duration: 2, options: .curveEaseIn)
 
 
         UIView.animateKeyframes(withDuration: 4.0, delay: 0.0, options: .calculationModeLinear, animations: {
@@ -67,7 +71,7 @@ class ViewController: UIViewController {
         
         
         UIView.animate(withDuration: 2) {
-            self.a.layer.backgroundColor = UIColor.red.cgColor
+            self.a.layer.backgroundColor = self.colors.randomElement()!.cgColor
         }
         
         UIView.animateKeyframes(withDuration: 4.0, delay: 0.0, options: .calculationModeLinear, animations: {
@@ -79,7 +83,7 @@ class ViewController: UIViewController {
         }, completion: nil)
         
         UIView.animate(withDuration: 2) {
-            self.m.layer.backgroundColor = UIColor.orange.cgColor
+            self.m.layer.backgroundColor = self.colors.randomElement()!.cgColor
         }
         
         UIView.animateKeyframes(withDuration: 4.0, delay: 0.0, options: .calculationModeLinear, animations: {
@@ -92,7 +96,7 @@ class ViewController: UIViewController {
         
         
         UIView.animate(withDuration: 2) {
-            self.b.layer.backgroundColor = UIColor.magenta.cgColor
+            self.b.layer.backgroundColor = self.colors.randomElement()!.cgColor
         }
         
         UIView.animateKeyframes(withDuration: 4.0, delay: 0.0, options: .calculationModeLinear, animations: {
@@ -105,7 +109,7 @@ class ViewController: UIViewController {
 
         
         UIView.animate(withDuration: 2) {
-            self.d.layer.backgroundColor = UIColor.cyan.cgColor
+            self.d.layer.backgroundColor = self.colors.randomElement()!.cgColor
         }
         
         UIView.animateKeyframes(withDuration: 4.0, delay: 0.0, options: .calculationModeLinear, animations: {
@@ -118,7 +122,7 @@ class ViewController: UIViewController {
 
         
         UIView.animate(withDuration: 2) {
-            self.aa.layer.backgroundColor = UIColor.yellow.cgColor
+            self.aa.layer.backgroundColor = self.colors.randomElement()!.cgColor
         }
         
         UIView.animateKeyframes(withDuration: 4.0, delay: 0.0, options: .calculationModeLinear, animations: {
@@ -209,6 +213,12 @@ class ViewController: UIViewController {
         }, completion: nil)
 
     }
+    
+//    func changeColor(to color: UIColor, duration: TimeInterval, options: UIView.AnimationOptions) {
+//        UIView.animate(withDuration: duration, delay: 0, options: options, animations: {
+//            self.l.layer.backgroundColor = color.cgColor
+//        }, completion: nil)
+//    }
     
 }
 
