@@ -18,14 +18,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var d: UILabel!
     @IBOutlet weak var aa: UILabel!
     
-    
-    
     var shouldScramble: Bool = false
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
 
     @IBAction func shouldScramble(_ sender: Any) {
         shouldScramble.toggle()
@@ -39,26 +33,26 @@ class ViewController: UIViewController {
         }
     }
     
+    // Fade Out Logo
     func fadeOutLogo() {
         UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseOut, animations: {
             self.lambdaLogo.alpha = 0
         }, completion: nil)
-        
     }
     
+    // Fade In Logo
     func fadeInLogo() {
         UIView.animate(withDuration: 1.0, delay: 2.0, options: .curveEaseIn, animations: {
             self.lambdaLogo.alpha = 1
         }, completion: nil)
-        
     }
     
+    
+    // Drop letters animations
     func dropLetters() {
         
-
         UIView.animate(withDuration: 2) {
             self.l.layer.backgroundColor = UIColor.blue.cgColor
-            self.l.textColor = .red
         }
 
 
@@ -130,15 +124,15 @@ class ViewController: UIViewController {
         UIView.animateKeyframes(withDuration: 4.0, delay: 0.0, options: .calculationModeLinear, animations: {
             
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5, animations: {
-                self.aa.transform = CGAffineTransform.identity.translatedBy(x: CGFloat.random(in: 0...200), y: CGFloat.random(in: 0...200)).rotated(by: CGFloat.pi / 4).scaledBy(x: -1, y: 2)
+                self.aa.transform = CGAffineTransform.identity.translatedBy(x: CGFloat.random(in: 0...200), y: CGFloat.random(in: 0...200)).rotated(by: CGFloat.pi / 4).scaledBy(x: CGFloat.random(in: -5...5), y: CGFloat.random(in: -5...5))
             })
             
         }, completion: nil)
 
-        
-
     }
     
+   
+    // Return letters animations
     func returnLetters() {
         
         UIView.animate(withDuration: 2) {
